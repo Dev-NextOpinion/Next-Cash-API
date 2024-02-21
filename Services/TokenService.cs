@@ -1,0 +1,54 @@
+﻿using API_Financeiro_Next.Models;
+using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
+
+namespace API_Financeiro_Next.Services;
+
+public class TokenService
+{
+    private IConfiguration _configuration;
+
+    public TokenService(IConfiguration configuration)
+    {
+        _configuration = configuration;
+    }
+
+    public string GenerateToken(Usuario usuario)
+    {
+        Claim[] claims = new Claim[]
+        {
+            new Claim("id", usuario.Id),
+            new Claim("Email", usuario.Email),
+
+            new Claim("loginTimestamp", DateTime.UtcNow.ToString())
+
+        };
+
+        // Gerando chave
+        var key = new SymmetricSecurityKey
+            (Encoding.UTF8.GetBytes(_configuration
+            ["SymmetricSecurityKey_ApiFinanceiro"]));
+
+        // Gerando credenciais a partir da chave
+        var signingCredentials = new SigningCredentials(key, 
+            SecurityAlgorithms.HmacSha256);
+
+        // Gerando token
+        var token = new JwtSecurityToken(
+
+            // Tempo de expiração
+            expires: DateTime.Now.AddDays(1),
+
+            // Reeinvidicações (claims)
+            claims: claims,
+
+            // Credenciais
+            signingCredentials: signingCredentials
+            );
+
+        // Retornando/convertendo o token
+        return new JwtSecurityTokenHandler().WriteToken(token);
+    }
+}
