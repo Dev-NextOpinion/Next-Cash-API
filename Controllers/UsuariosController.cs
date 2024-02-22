@@ -30,4 +30,11 @@ public class UsuariosController : ControllerBase
         return Ok(token);
     }
 
+    [HttpPost("reset-password")]
+    public async Task<IActionResult> ResetPasswordAsync(string email)
+    {
+        await _usuarioService.PasswordReset(email);
+        return Ok("Email de recuperação de senha enviado com sucesso!");
+    }
+
 }

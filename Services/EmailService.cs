@@ -6,13 +6,14 @@ namespace API_Financeiro_Next.Services;
 
 public class EmailService
 {
-    private readonly string _smtpServer = "seu_servidor_smtp";
+    private readonly string _smtpServer = "smtp-mail.outlook.com";
     private readonly int _smtpPort = 587; // Porta do servidor SMTP
-    private readonly string _smtpUsername = "seu_email";
-    private readonly string _smtpPassword = "sua_senha";
+    private readonly string _smtpUsername = "evertonpaulo1998@outlook.com";
+    private readonly string _smtpPassword = "evertguitar4002";
 
-    public async Task EnviarEmailBoasVindas(string destinatario, string nomeUsuario)
+    public async Task WelcomeEmail(string destinatario, string nomeUsuario)
     {
+        // Configurando SMPT
         var smtpClient = new SmtpClient(_smtpServer)
         {
             Port = _smtpPort,
@@ -20,6 +21,7 @@ public class EmailService
             EnableSsl = true,
         };
 
+        // Mensagem do corpo do email
         var mensagem = new MailMessage
         {
             From = new MailAddress(_smtpUsername),
@@ -28,8 +30,39 @@ public class EmailService
             IsBodyHtml = false,
         };
 
+        // enviando email para o destinatário
+        mensagem.To.Add(destinatario);
+        
+        await smtpClient.SendMailAsync(mensagem);
+    }
+
+    public async Task PasswordResetEmail(string destinatario, string token)
+    {
+        // Configurando SMPT
+        var smtpClient = new SmtpClient(_smtpServer)
+        {
+            Port = _smtpPort,
+            Credentials = new NetworkCredential(_smtpUsername, _smtpPassword),
+            EnableSsl = true,
+        };
+
+        // Link para acesso de reset por token
+        var resetUrl = $"https://localhost:7204/redefinir-senha?token={WebUtility.UrlEncode(token)}";
+
+        // Mensagem do corpo do email
+        var mensagem = new MailMessage
+        {
+            From = new MailAddress(_smtpUsername),
+            Subject = "Recuperação de Senha - NextCash",
+            Body = $"Olá,\n\nVocê solicitou a recuperação de senha para a sua conta no NextCash. Clique no link a seguir para redefinir sua senha:\n{resetUrl}\n\nSe você não solicitou esta recuperação, ignore este e-mail.",
+            IsBodyHtml = false,
+        };
+
+        // enviando email para o destinatário
         mensagem.To.Add(destinatario);
 
         await smtpClient.SendMailAsync(mensagem);
+
+
     }
 }

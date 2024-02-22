@@ -39,6 +39,8 @@ builder.Services.AddScoped<UsuarioService>();
 
 builder.Services.AddScoped<TokenService>();
 
+builder.Services.AddScoped<EmailService>();
+
 // Adicionando serviço de autenticação por JWT 
 builder.Services.AddAuthentication(opts =>
 {
