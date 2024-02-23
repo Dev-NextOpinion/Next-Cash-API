@@ -2,9 +2,8 @@
 
 namespace API_Financeiro_Next.Data.Dto;
 
-public class CreateUsuarioDto
+public class UpdateUsuarioDto
 {
-
     [Required]
     public string Username { get; set; }
 
@@ -15,12 +14,11 @@ public class CreateUsuarioDto
 
     public string? Cnpj { get; set; }
 
-    [Required]
-    [DataType(DataType.Password)]
-    public string Password { get; set; }
+    //[Required]
+    //[DataType(DataType.Password)]
+    //public string Password { get; set; }
 
-    [Required]
-    [Compare("Password")]
-    public string PasswordConfirmation { get; set; }
-
+    //[Required]
+    //[Compare("Password")]
+    //public string PasswordConfirmation { get; set; }
 }

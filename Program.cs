@@ -41,6 +41,15 @@ builder.Services.AddScoped<TokenService>();
 
 builder.Services.AddScoped<EmailService>();
 
+// Adicionando o reset de senha
+builder.Services.Configure<IdentityOptions>(options =>
+{
+    options.Password.RequiredLength = 11;
+
+});
+
+
+
 // Adicionando serviço de autenticação por JWT 
 builder.Services.AddAuthentication(opts =>
 {
@@ -94,12 +103,18 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
+    app.UseDeveloperExceptionPage();
 }
 
 app.UseHttpsRedirection();
 
+app.UseRouting();
+
 app.UseAuthentication();
 
+app.UseAuthorization();
+
 app.MapControllers();
+
 
 app.Run();

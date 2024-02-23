@@ -6,5 +6,7 @@ public class Usuario : IdentityUser
 {
     public string Cpf {  get; set; }
 
+    public string Cnpj { get; set; }
+
     public Usuario() : base() { }
 }

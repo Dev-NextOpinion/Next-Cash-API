@@ -1,6 +1,7 @@
 ﻿using API_Financeiro_Next.Data.Dto;
 using API_Financeiro_Next.Models;
 using AutoMapper;
+
 using Microsoft.AspNetCore.Identity;
 
 namespace API_Financeiro_Next.Services;
@@ -62,16 +63,15 @@ public class UsuarioService
         var token = _tokenService.GenerateToken(user);
 
         return token;
-
     }
 
-    public async Task PasswordReset(string email)
+    public async Task<string> PasswordReset(string email)
     {
         // verificando email do usuário
         var user = await _userManager.FindByEmailAsync(email);
 
         // se o email do user for nulo/não existir
-        if(user == null)
+        if (user == null)
         {
             throw new ApplicationException("Usuário não encontrado");
         }
@@ -80,5 +80,28 @@ public class UsuarioService
         var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
         await _emailService.PasswordResetEmail(email, token);
+
+        return token;
     }
+
+
+    public async Task ChangePassword(string email, string token, string newPassword)
+    {
+        var user = await _userManager.FindByEmailAsync(email);
+
+        if (user == null)
+        {
+            throw new ApplicationException("Usuário não encontrado");
+        }
+
+        var result = await _userManager.ResetPasswordAsync(user, token, newPassword);
+
+
+        if (!result.Succeeded)
+        {
+            throw new ApplicationException("Erro ao redefinir a senha");
+        }
+    }
+
+    
 }

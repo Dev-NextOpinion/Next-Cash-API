@@ -6,10 +6,10 @@ namespace API_Financeiro_Next.Services;
 
 public class EmailService
 {
-    private readonly string _smtpServer = "smtp-mail.outlook.com";
+    private readonly string _smtpServer = "mail.nextopinion.com.pt";
     private readonly int _smtpPort = 587; // Porta do servidor SMTP
-    private readonly string _smtpUsername = "evertonpaulo1998@outlook.com";
-    private readonly string _smtpPassword = "evertguitar4002";
+    private readonly string _smtpUsername = "dev@nextopinion.com.pt";
+    private readonly string _smtpPassword = "@Next2024";
 
     public async Task WelcomeEmail(string destinatario, string nomeUsuario)
     {
@@ -47,7 +47,9 @@ public class EmailService
         };
 
         // Link para acesso de reset por token
-        var resetUrl = $"https://localhost:7204/redefinir-senha?token={WebUtility.UrlEncode(token)}";
+        var resetUrl = $"https://localhost:7204/reset-password/?token={WebUtility.UrlEncode(token)}";
+
+
 
         // Mensagem do corpo do email
         var mensagem = new MailMessage
