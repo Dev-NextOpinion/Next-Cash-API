@@ -19,6 +19,51 @@ namespace API_Financeiro_Next.Migrations
                 .HasAnnotation("ProductVersion", "6.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
 
+            modelBuilder.Entity("API_Financeiro_Next.Models.Categorias", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("TituloCategoria")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categorias");
+                });
+
+            modelBuilder.Entity("API_Financeiro_Next.Models.ContasPagar", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<int?>("CategoriasId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DataVencimento")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("DescricaoDespesa")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Fornecedor")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Valor")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoriasId");
+
+                    b.ToTable("Contas");
+                });
+
             modelBuilder.Entity("API_Financeiro_Next.Models.DespesaFixa", b =>
                 {
                     b.Property<int>("Id")
@@ -26,7 +71,6 @@ namespace API_Financeiro_Next.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("ReceitaId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("TituloDespesaFixa")
@@ -50,7 +94,6 @@ namespace API_Financeiro_Next.Migrations
                         .HasColumnType("int");
 
                     b.Property<int?>("ReceitaId")
-                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("TituloDespesaVariavel")
@@ -123,13 +166,20 @@ namespace API_Financeiro_Next.Migrations
                     b.ToTable("Receitas");
                 });
 
+            modelBuilder.Entity("API_Financeiro_Next.Models.ContasPagar", b =>
+                {
+                    b.HasOne("API_Financeiro_Next.Models.Categorias", "Categorias")
+                        .WithMany("ContasAPagar")
+                        .HasForeignKey("CategoriasId");
+
+                    b.Navigation("Categorias");
+                });
+
             modelBuilder.Entity("API_Financeiro_Next.Models.DespesaFixa", b =>
                 {
                     b.HasOne("API_Financeiro_Next.Models.Receita", "Receita")
                         .WithMany("DespesaFixa")
-                        .HasForeignKey("ReceitaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ReceitaId");
 
                     b.Navigation("Receita");
                 });
@@ -138,11 +188,14 @@ namespace API_Financeiro_Next.Migrations
                 {
                     b.HasOne("API_Financeiro_Next.Models.Receita", "Receita")
                         .WithMany("DespesaVariavel")
-                        .HasForeignKey("ReceitaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("ReceitaId");
 
                     b.Navigation("Receita");
+                });
+
+            modelBuilder.Entity("API_Financeiro_Next.Models.Categorias", b =>
+                {
+                    b.Navigation("ContasAPagar");
                 });
 
             modelBuilder.Entity("API_Financeiro_Next.Models.Receita", b =>

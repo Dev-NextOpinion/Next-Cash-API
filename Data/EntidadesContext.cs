@@ -1,6 +1,7 @@
 ﻿using API_Financeiro_Next.Models;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace API_Financeiro_Next.Data;
 
 public class EntidadesContext : DbContext
@@ -9,7 +10,12 @@ public class EntidadesContext : DbContext
         :base (opts)
     {
         
+        
     }
+
+    public DbSet<Categorias> Categorias { get; set; }
+
+    public DbSet<ContasPagar> Contas { get; set; }
 
     public DbSet<Receita> Receitas { get; set; }
 
