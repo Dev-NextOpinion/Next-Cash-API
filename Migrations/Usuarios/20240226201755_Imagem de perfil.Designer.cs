@@ -3,6 +3,7 @@ using System;
 using API_Financeiro_Next.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_Financeiro_Next.Migrations.Usuarios
 {
     [DbContext(typeof(UsuariosContext))]
-    partial class UsuariosContextModelSnapshot : ModelSnapshot
+    [Migration("20240226201755_Imagem de perfil")]
+    partial class Imagemdeperfil
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

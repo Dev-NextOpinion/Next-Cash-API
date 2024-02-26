@@ -5,6 +5,8 @@ public class ReadUsuariosDto
 {
     public string Id { get; set; }
 
+    public byte[] ImageProfile { get; set; }
+
     public string Username { get; set; }
 
     public string Email { get; set; }

@@ -4,6 +4,7 @@ using API_Financeiro_Next.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
 
 namespace API_Financeiro_Next.Controllers;
 

@@ -4,6 +4,8 @@ namespace API_Financeiro_Next.Models;
 
 public class Usuario : IdentityUser
 {
+    public byte[] ImageProfile { get; set; }
+
     public string Cpf {  get; set; }
 
     public string Cnpj { get; set; }
