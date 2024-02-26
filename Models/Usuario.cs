@@ -8,5 +8,7 @@ public class Usuario : IdentityUser
 
     public string Cnpj { get; set; }
 
+   // public virtual Categorias Categorias { get; set; }
+
     public Usuario() : base() { }
 }

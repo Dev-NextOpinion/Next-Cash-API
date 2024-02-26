@@ -30,20 +30,6 @@ public class UsuariosController : ControllerBase
 
     }
 
-    [HttpPut("{id}")]
-    public IActionResult UpdateCadastro(string id,
-        [FromBody] UpdateUsuarioDto updateUsuarioDto)
-    {
-        var user = _context.Users.FirstOrDefault(
-            user =>  user.Id == id);
-        if (user == null) NotFound();
-
-        _mapper.Map(updateUsuarioDto, user);
-        _context.SaveChanges();
-        return NoContent();
-    }
-
-
     [HttpPost("login")]
     public async Task<IActionResult> LoginAsync(LoginUsuarioDto loginDto)
     {
@@ -71,4 +57,20 @@ public class UsuariosController : ControllerBase
         return _mapper.Map<List<ReadUsuariosDto>>(
           _context.Users.ToList());
     }
+
+    [HttpPut("{id}")]
+    public IActionResult UpdateCadastro(string id,
+        [FromBody] UpdateUsuarioDto updateUsuarioDto)
+    {
+        var user = _context.Users.FirstOrDefault(
+            user =>  user.Id == id);
+        if (user == null) NotFound();
+
+        _mapper.Map(updateUsuarioDto, user);
+        _context.SaveChanges();
+        return NoContent();
+    }
+
+
+   
 }
