@@ -12,4 +12,6 @@ public class Categorias
     public string TituloCategoria { get; set; }
 
     public virtual ICollection<ContasPagar> ContasAPagar { get; set; }
+
+    public virtual Usuario UsuarioId { get; set; }
 }

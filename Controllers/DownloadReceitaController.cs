@@ -26,7 +26,7 @@ public class DownloadReceitaController : ControllerBase
     {
         List<Receita> receitas = _context.Receitas.ToList();
 
-        Document.Create(container =>
+        var pdfBytes = Document.Create(container =>
         {
             foreach (var receita in receitas)
             {
@@ -81,12 +81,18 @@ public class DownloadReceitaController : ControllerBase
                         });
                 });
             }
-        })
+        }).GeneratePdf();
 
-        .GeneratePdf("detalhes_receitas.pdf");
-       
+        // Configurar cabeçalhos da resposta HTTP
+        Response.Headers.Add("Content-Disposition", "attachment; filename=Receita-Gestar.pdf");
+        Response.Headers.Add("Content-Type", "application/pdf");
+
+        // Retornar o arquivo PDF diretamente
+        return File(pdfBytes, "application/pdf", "detalhes_receitas.pdf");
 
 
-        return Ok("PDF gerado com sucesso!");
+
+
+        //return Ok("PDF gerado com sucesso!");
     }
 }
