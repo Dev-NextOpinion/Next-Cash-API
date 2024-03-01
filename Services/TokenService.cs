@@ -9,6 +9,7 @@ namespace API_Financeiro_Next.Services;
 public class TokenService
 {
     private IConfiguration _configuration;
+    private TokenValidationResult _tokenValidationResult;
 
     public TokenService(IConfiguration configuration)
     {
@@ -19,11 +20,9 @@ public class TokenService
     {
         Claim[] claims = new Claim[]
         {
-            new Claim("id", usuario.Id),
-            new Claim("Email", usuario.Email),
-
+            new Claim(ClaimTypes.NameIdentifier, usuario.Id),
+            new Claim(ClaimTypes.Email, usuario.Email),
             new Claim("loginTimestamp", DateTime.UtcNow.ToString())
-
         };
 
         // Gerando chave
@@ -51,4 +50,9 @@ public class TokenService
         // Retornando/convertendo o token
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
+
+    
+
 }
+
+

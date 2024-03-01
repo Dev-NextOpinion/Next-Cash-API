@@ -32,10 +32,19 @@ public class ContasPagarController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<ReadContasPagarDto> GetContasPagar()
+    public IEnumerable<ReadContasPagarDto> GetContasPagar(
+        [FromQuery] string? contaPagar = null)
     {
-        return _mapper.Map<List<ReadContasPagarDto>>(
+        if(contaPagar == null)
+        {
+            return _mapper.Map<List<ReadContasPagarDto>>(
             _context.Contas.ToList());
+
+        }
+        // Consulta a conta através do nome do fornecedor
+        return _mapper.Map<List<ReadContasPagarDto>>(_context.Contas
+            .Where(conta => conta.Fornecedor.Contains(contaPagar)).ToList());
+        
     }
 
     [HttpGet("{id}")]
@@ -64,7 +73,7 @@ public class ContasPagarController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult DeleteContasPagar(int id)
     {
-        var contas = _context.Contas.FirstOrDefaultAsync(
+        var contas = _context.Contas.FirstOrDefault(
             contas => contas.Id == id);
         if (contas == null) NotFound();
 

@@ -9,5 +9,7 @@ public class ReadCategoriasDto
 
     public string TituloCategoria { get; set; }
 
+    public string CreatedByUserId { get; set; }
+
     public ICollection<ReadContasPagarDto> ReadContasPagarDto { get; set; }
 }

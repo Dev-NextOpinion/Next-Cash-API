@@ -65,7 +65,7 @@ public class DespesasVariaveisController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult DeleteDespesaVariavel(int id)
     {
-        var despesa = _context.DespesaVariavels.FirstOrDefaultAsync(
+        var despesa = _context.DespesaVariavels.FirstOrDefault(
             despesa => despesa.Id == id);
         if (despesa == null) NotFound();
 

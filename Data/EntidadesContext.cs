@@ -13,6 +13,7 @@ public class EntidadesContext : DbContext
         
     }
 
+   
     public DbSet<Categorias> Categorias { get; set; }
 
     public DbSet<ContasPagar> Contas { get; set; }

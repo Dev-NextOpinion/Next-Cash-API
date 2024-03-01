@@ -1,7 +1,9 @@
+using API_Financeiro_Next.Authorization;
 using API_Financeiro_Next.Data;
 using API_Financeiro_Next.Models;
 using API_Financeiro_Next.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -11,7 +13,6 @@ using System.Text;
 var builder = WebApplication.CreateBuilder(args);
 
 QuestPDF.Settings.License = LicenseType.Community;
-
 
 // Buscando conexão com database para as tabelas das entidades
 var entidadesConnectionString = builder.Configuration["ConnectionStrings:EntidadesConnection"];
@@ -41,14 +42,15 @@ builder.Services.AddScoped<TokenService>();
 
 builder.Services.AddScoped<EmailService>();
 
+builder.Services.AddScoped<CategoriaService>();
+
+
 // Adicionando o reset de senha
 builder.Services.Configure<IdentityOptions>(options =>
 {
     options.Password.RequiredLength = 11;
 
 });
-
-
 
 // Adicionando serviço de autenticação por JWT 
 builder.Services.AddAuthentication(opts =>
@@ -71,13 +73,23 @@ builder.Services.AddAuthentication(opts =>
 });
 
 
+// Adicionando autorizações 
+builder.Services.AddAuthorization(opts =>
+{
+    opts.AddPolicy("AuthenticationUser", policy =>
+    {
+        policy.AddRequirements(new AuthenticationUser());
+    });
+});
+
+builder.Services.AddSingleton<IAuthorizationHandler, CategoriasAuthorization>();
 
 // Adicionando o mapeamento de DTOs
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
-
 builder.Services.AddControllers().AddNewtonsoftJson();
 
+builder.Services.AddHttpContextAccessor();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

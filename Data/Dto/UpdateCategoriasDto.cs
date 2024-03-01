@@ -7,4 +7,6 @@ public class UpdateCategoriasDto
 {
     [Required]
     public string TituloCategoria { get; set; }
+
+   
 }

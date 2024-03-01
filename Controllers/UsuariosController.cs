@@ -16,7 +16,8 @@ public class UsuariosController : ControllerBase
     private IMapper _mapper;
     private UsuariosContext _context;
 
-    public UsuariosController(UsuarioService usuarioService, IMapper mapper, UsuariosContext context)
+    public UsuariosController(UsuarioService usuarioService, 
+        IMapper mapper, UsuariosContext context)
     {
         _usuarioService = usuarioService;
         _mapper = mapper;
@@ -36,6 +37,7 @@ public class UsuariosController : ControllerBase
     {
         var token = await _usuarioService.LoginUser(loginDto);
         return Ok(token);
+
     }
 
     [HttpPost("reset-password/")]
@@ -48,7 +50,8 @@ public class UsuariosController : ControllerBase
     [HttpPost("reset-password-confirm")]
     public async Task<IActionResult> ResetPasswordConfirmAsync(ResetPasswordDto resetPasswordDto)
     {
-        await _usuarioService.ChangePassword(resetPasswordDto.Email, resetPasswordDto.Token, resetPasswordDto.NewPassword);
+        await _usuarioService.ChangePassword(resetPasswordDto.Email,
+            resetPasswordDto.Token, resetPasswordDto.NewPassword);
         return Ok("Senha alterada com sucesso!");
     }
 

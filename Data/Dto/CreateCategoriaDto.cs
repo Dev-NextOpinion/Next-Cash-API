@@ -8,4 +8,5 @@ public class CreateCategoriaDto
     [Required]
     public string TituloCategoria { get; set; }
 
+
 }

@@ -65,6 +65,8 @@ public class UsuarioService
         return token;
     }
 
+
+
     public async Task<string> PasswordReset(string email)
     {
         // verificando email do usuário

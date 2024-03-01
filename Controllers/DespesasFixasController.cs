@@ -65,7 +65,7 @@ public class DespesasFixasController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult DeleteDespesaFixa(int id)
     {
-        var despesa = _context.DespesasFixas.FirstOrDefaultAsync(
+        var despesa = _context.DespesasFixas.FirstOrDefault(
             despesa => despesa.Id == id);
         if (despesa == null) NotFound();
 

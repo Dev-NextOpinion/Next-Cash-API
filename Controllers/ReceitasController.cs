@@ -66,7 +66,7 @@ public class ReceitasController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult DeleteReceita(int id)
     {
-        var receita = _context.Receitas.FirstOrDefaultAsync(
+        var receita = _context.Receitas.FirstOrDefault(
             receita => receita.Id == id);
         if (receita == null) NotFound();
 
