@@ -32,7 +32,6 @@ public class DownloadContasPagarController : ControllerBase
         {
             foreach (var conta in contasPagar)
             {
-
                 container.Page(page =>
                 {
                     page.Size(PageSizes.A4);
@@ -55,11 +54,11 @@ public class DownloadContasPagarController : ControllerBase
                        .Column(x =>
                        {                          
                            x.Spacing(10);
-                           x.Item().Background(Colors.Blue.Medium).Height(50).Text($"Fornecedor: {conta.Fornecedor}").FontColor(Colors.White); ;
+                           x.Item().Background(Colors.Blue.Medium).Height(50).Text($"Fornecedor: {conta.Fornecedor}").FontColor(Colors.White);
 
                            
                            x.Item().PaddingVertical(1).LineHorizontal(1).LineColor(Colors.Black);
-                           x.Item().Background(Colors.Blue.Medium).Height(50).Text($"Descrição: {conta.DescricaoDespesa}").FontColor(Colors.White); ;
+                           x.Item().Background(Colors.Blue.Medium).Height(50).Text($"Descrição: {conta.DescricaoDespesa}").FontColor(Colors.White);
 
                            
                            x.Item().PaddingVertical(1).LineHorizontal(1).LineColor(Colors.Black);
@@ -88,7 +87,6 @@ public class DownloadContasPagarController : ControllerBase
 
         // Retorna o arquivo PDF diretamente
         return File(document, "application/pdf", "ContasPagar.pdf");
-
 
 
         //// use the following invocation

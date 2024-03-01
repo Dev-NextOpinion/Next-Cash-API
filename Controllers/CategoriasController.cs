@@ -21,7 +21,8 @@ public class CategoriasController : ControllerBase
     private readonly IMapper _mapper;
     private readonly CategoriaService _categoriaService;
 
-    public CategoriasController(EntidadesContext context, IMapper mapper, CategoriaService categoriaService)
+    public CategoriasController(EntidadesContext context, 
+        IMapper mapper, CategoriaService categoriaService)
     {
         _context = context;
         _mapper = mapper;
@@ -64,6 +65,7 @@ public class CategoriasController : ControllerBase
             .Where(categoria => categoria.ContasAPagar
             .Any(contas => contas.Categorias.TituloCategoria == tituloCategoria))
             .ToList());
+
     }
 
     [HttpGet("{id}")]
