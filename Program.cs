@@ -2,6 +2,7 @@ using API_Financeiro_Next.Authorization;
 using API_Financeiro_Next.Data;
 using API_Financeiro_Next.Models;
 using API_Financeiro_Next.Services;
+using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -9,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using QuestPDF.Infrastructure;
 using System.Text;
+using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -44,12 +46,17 @@ builder.Services.AddScoped<EmailService>();
 
 builder.Services.AddScoped<CategoriaService>();
 
-
 // Adicionando o reset de senha
 builder.Services.Configure<IdentityOptions>(options =>
 {
     options.Password.RequiredLength = 11;
 
+});
+
+// CONFIGURAÇÃO DE PROXY REVERSO - HEADERS
+builder.Services.Configure<ForwardedHeadersOptions>(options =>
+{
+    options.KnownProxies.Add(IPAddress.Parse("135.181.28.87"));
 });
 
 // Adicionando serviço de autenticação por JWT 
@@ -97,6 +104,13 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+
+// CONFIGURAÇÃO DE PROXY REVERSO
+app.UseForwardedHeaders(new ForwardedHeadersOptions
+{
+    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+});
+
 /*
  O CORS (Cross-origin Resource Sharing) é um mecanismo utilizado pelos navegadores
 para compartilhar recursos entre diferentes origens. O CORS é uma especificação do 
@@ -116,6 +130,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
+   
 }
 
 app.UseHttpsRedirection();
@@ -130,5 +145,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+app.MapGet("/", () => "135.181.28.87");
 
 app.Run();
