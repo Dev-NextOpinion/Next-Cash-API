@@ -124,16 +124,26 @@ app.UseCors(builder => builder
        .AllowAnyOrigin()
     );
 
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+//// Ambiente de desenvolvimento
+//if (app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI();
+//    app.UseDeveloperExceptionPage();
+   
+//}
+
+// Ambiente de produção
+if (!app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
-   
+    app.UseHttpsRedirection();
+
 }
 
-app.UseHttpsRedirection();
+//app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 
