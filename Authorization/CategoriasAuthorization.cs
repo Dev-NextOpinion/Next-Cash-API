@@ -7,7 +7,9 @@ namespace API_Financeiro_Next.Authorization;
 
 public class CategoriasAuthorization : AuthorizationHandler<AuthenticationUser>
 {
-    protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, AuthenticationUser requirement)
+    protected override Task HandleRequirementAsync(
+        AuthorizationHandlerContext context,
+        AuthenticationUser requirement)
     {
         // Obtém o ID do usuário automaticamente
         var usuarioClaim = context.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;

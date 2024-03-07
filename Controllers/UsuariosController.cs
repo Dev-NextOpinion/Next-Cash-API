@@ -29,7 +29,6 @@ public class UsuariosController : ControllerBase
     {
         await _usuarioService.RegisterUser(cadastroDto);
         return Ok("Usuário cadastrado com sucesso!");
-
     }
 
     [HttpPost("login")]

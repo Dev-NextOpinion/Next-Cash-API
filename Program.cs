@@ -125,25 +125,25 @@ app.UseCors(builder => builder
     );
 
 //// Ambiente de desenvolvimento
-//if (app.Environment.IsDevelopment())
-//{
-//    app.UseSwagger();
-//    app.UseSwaggerUI();
-//    app.UseDeveloperExceptionPage();
-   
-//}
-
-// Ambiente de produção
-if (!app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
     app.UseDeveloperExceptionPage();
-    app.UseHttpsRedirection();
 
 }
 
-//app.UseHttpsRedirection();
+//// Ambiente de produção
+//if (!app.Environment.IsDevelopment())
+//{
+//    app.UseSwagger();
+//    app.UseSwaggerUI();
+//    app.UseDeveloperExceptionPage();
+//    app.UseHttpsRedirection();
+
+//}
+
+app.UseHttpsRedirection();
 
 app.UseStaticFiles();
 

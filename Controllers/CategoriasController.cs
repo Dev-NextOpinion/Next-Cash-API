@@ -46,7 +46,7 @@ public class CategoriasController : ControllerBase
             return BadRequest(ex.Message);
         }
     }
-
+    
 
     [HttpGet]
     public IEnumerable<ReadCategoriasDto> GetCategorias(
