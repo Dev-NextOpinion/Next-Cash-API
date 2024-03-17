@@ -7678,6 +7678,7 @@
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.14",
       "Microsoft.AspNetCore.Mvc.NewtonsoftJson >= 6.0.0",
       "Microsoft.EntityFrameworkCore >= 6.0.14",
+      "Microsoft.EntityFrameworkCore.Analyzers >= 6.0.14",
       "Microsoft.EntityFrameworkCore.Proxies >= 6.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.14",
       "Microsoft.Extensions.Identity.Stores >= 6.0.14",
@@ -7747,6 +7748,10 @@
             "version": "[6.0.0, )"
           },
           "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[6.0.14, )"
+          },
+          "Microsoft.EntityFrameworkCore.Analyzers": {
             "target": "Package",
             "version": "[6.0.14, )"
           },
