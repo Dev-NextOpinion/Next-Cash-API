@@ -13,7 +13,9 @@ public class EntidadesContext : DbContext
         
     }
 
-   
+
+    public DbSet<Beneficiarios> Beneficiarios { get; set; }
+
     public DbSet<Categorias> Categorias { get; set; }
 
     public DbSet<ContasPagar> Contas { get; set; }

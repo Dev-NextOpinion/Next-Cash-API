@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API_Financeiro_Next.Migrations
 {
     [DbContext(typeof(EntidadesContext))]
-    [Migration("20240227140608_User Id e categoria")]
-    partial class UserIdecategoria
+    [Migration("20240314133439_ContasPagar")]
+    partial class ContasPagar
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,37 @@ namespace API_Financeiro_Next.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.14")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("API_Financeiro_Next.Models.Beneficiarios", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Cpf_Cnpj")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Descricao")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NomeBeneficiario")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Referencia")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Tipo")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Beneficiarios");
+                });
 
             modelBuilder.Entity("API_Financeiro_Next.Models.Categorias", b =>
                 {
@@ -48,6 +79,9 @@ namespace API_Financeiro_Next.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int?>("BeneficiariosId")
+                        .HasColumnType("int");
+
                     b.Property<int?>("CategoriasId")
                         .HasColumnType("int");
 
@@ -66,6 +100,8 @@ namespace API_Financeiro_Next.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("BeneficiariosId");
 
                     b.HasIndex("CategoriasId");
 
@@ -251,9 +287,15 @@ namespace API_Financeiro_Next.Migrations
 
             modelBuilder.Entity("API_Financeiro_Next.Models.ContasPagar", b =>
                 {
+                    b.HasOne("API_Financeiro_Next.Models.Beneficiarios", "Beneficiarios")
+                        .WithMany("ContasAPagar")
+                        .HasForeignKey("BeneficiariosId");
+
                     b.HasOne("API_Financeiro_Next.Models.Categorias", "Categorias")
                         .WithMany("ContasAPagar")
                         .HasForeignKey("CategoriasId");
+
+                    b.Navigation("Beneficiarios");
 
                     b.Navigation("Categorias");
                 });
@@ -274,6 +316,11 @@ namespace API_Financeiro_Next.Migrations
                         .HasForeignKey("ReceitaId");
 
                     b.Navigation("Receita");
+                });
+
+            modelBuilder.Entity("API_Financeiro_Next.Models.Beneficiarios", b =>
+                {
+                    b.Navigation("ContasAPagar");
                 });
 
             modelBuilder.Entity("API_Financeiro_Next.Models.Categorias", b =>

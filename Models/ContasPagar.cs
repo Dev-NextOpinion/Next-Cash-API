@@ -23,4 +23,8 @@ public class ContasPagar
     public int? CategoriasId { get; set; }
     public virtual Categorias Categorias { get; set; }
 
+    public int? BeneficiariosId { get; set; }
+
+    public virtual Beneficiarios Beneficiarios { get; set; }
+
 }

@@ -14,6 +14,11 @@ using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//builder.WebHost.UseKestrel(options =>
+//{
+//    options.ListenAnyIP(5000); // Você pode ajustar a porta conforme necessário
+//});
+
 QuestPDF.Settings.License = LicenseType.Community;
 
 // Buscando conexão com database para as tabelas das entidades
@@ -138,9 +143,7 @@ if (app.Environment.IsDevelopment())
 //{
 //    app.UseSwagger();
 //    app.UseSwaggerUI();
-//    app.UseDeveloperExceptionPage();
 //    app.UseHttpsRedirection();
-
 //}
 
 app.UseHttpsRedirection();

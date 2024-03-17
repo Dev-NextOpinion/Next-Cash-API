@@ -4,7 +4,7 @@ namespace API_Financeiro_Next.Data.Dto;
 
 public class CreateUsuarioDto
 {
-    public byte[] ImageProfile { get; set; }
+    public byte[]? ImageProfile { get; set; }
 
     [Required]
     public string Username { get; set; }

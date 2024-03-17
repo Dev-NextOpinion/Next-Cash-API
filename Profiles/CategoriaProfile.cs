@@ -14,8 +14,6 @@ public class CategoriaProfile : Profile
             .ForMember(categoriaDto => categoriaDto.ReadContasPagarDto,
                 opt => opt.MapFrom(categoria => categoria.ContasAPagar));
 
-        CreateMap<ContasPagar, ReadContasPagarDto>();
-
         CreateMap<UpdateCategoriasDto, Categorias>();
 
     }

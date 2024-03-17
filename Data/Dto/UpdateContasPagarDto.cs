@@ -17,4 +17,6 @@ public class UpdateContasPagarDto
     public int Valor { get; set; }
 
     public int? CategoriasId { get; set; }
+
+    public int? BeneficiariosId { get; set; }
 }
