@@ -14,10 +14,6 @@ using System.Net;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//builder.WebHost.UseKestrel(options =>
-//{
-//    options.ListenAnyIP(5000); // Você pode ajustar a porta conforme necessário
-//});
 
 QuestPDF.Settings.License = LicenseType.Community;
 
@@ -59,10 +55,10 @@ builder.Services.Configure<IdentityOptions>(options =>
 });
 
 // CONFIGURAÇÃO DE PROXY REVERSO - HEADERS
-builder.Services.Configure<ForwardedHeadersOptions>(options =>
-{
-    options.KnownProxies.Add(IPAddress.Parse("135.181.28.87"));
-});
+//builder.Services.Configure<ForwardedHeadersOptions>(options =>
+//{
+  //  options.KnownProxies.Add(IPAddress.Parse("135.181.28.87"));
+//});
 
 // Adicionando serviço de autenticação por JWT 
 builder.Services.AddAuthentication(opts =>
@@ -129,22 +125,22 @@ app.UseCors(builder => builder
        .AllowAnyOrigin()
     );
 
-//// Ambiente de desenvolvimento
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-    app.UseDeveloperExceptionPage();
-
-}
-
-//// Ambiente de produção
-//if (!app.Environment.IsDevelopment())
+////// Ambiente de desenvolvimento
+//if (app.Environment.IsDevelopment())
 //{
 //    app.UseSwagger();
 //    app.UseSwaggerUI();
-//    app.UseHttpsRedirection();
+//    app.UseDeveloperExceptionPage();
+
 //}
+
+// Ambiente de produção
+if (!app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+    app.UseHttpsRedirection();
+}
 
 app.UseHttpsRedirection();
 
@@ -158,6 +154,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapGet("/", () => "135.181.28.87");
+//app.MapGet("/", () => "135.181.28.87");
 
 app.Run();
