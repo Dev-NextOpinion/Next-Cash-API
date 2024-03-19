@@ -72,3 +72,8 @@ C:\Users\canto\OneDrive\Área de Trabalho\Projetos NextOpinion\API_Financeiro_Ne
 C:\Users\canto\OneDrive\Área de Trabalho\Projetos NextOpinion\API_Financeiro_Next\bin\Debug\net6.0\runtimes\win-arm64\native\libSkiaSharp.dll
 C:\Users\canto\OneDrive\Área de Trabalho\Projetos NextOpinion\API_Financeiro_Next\bin\Debug\net6.0\runtimes\win-x64\native\libSkiaSharp.dll
 C:\Users\canto\OneDrive\Área de Trabalho\Projetos NextOpinion\API_Financeiro_Next\bin\Debug\net6.0\runtimes\win-x86\native\libSkiaSharp.dll
+C:\Users\canto\OneDrive\Área de Trabalho\Projetos NextOpinion\API_Financeiro_Next\bin\Debug\net6.0\out\web.config
+C:\Users\canto\OneDrive\Área de Trabalho\Projetos NextOpinion\API_Financeiro_Next\bin\Debug\net6.0\out\API_Financeiro_Next.deps.json
+C:\Users\canto\OneDrive\Área de Trabalho\Projetos NextOpinion\API_Financeiro_Next\bin\Debug\net6.0\out\API_Financeiro_Next.runtimeconfig.json
+C:\Users\canto\OneDrive\Área de Trabalho\Projetos NextOpinion\API_Financeiro_Next\bin\Debug\net6.0\out\appsettings.Development.json
+C:\Users\canto\OneDrive\Área de Trabalho\Projetos NextOpinion\API_Financeiro_Next\bin\Debug\net6.0\out\appsettings.json
