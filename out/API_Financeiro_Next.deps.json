@@ -10,6 +10,7 @@
         "dependencies": {
           "AutoMapper": "12.0.0",
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.0",
+          "HarfBuzzSharp.NativeAssets.Linux": "7.3.0.1",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.14",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.14",
           "Microsoft.AspNetCore.Mvc.NewtonsoftJson": "6.0.0",
@@ -20,6 +21,7 @@
           "Microsoft.Extensions.Identity.Stores": "6.0.14",
           "Pomelo.EntityFrameworkCore.MySql": "6.0.0",
           "QuestPDF": "2023.12.5",
+          "SkiaSharp.NativeAssets.Linux.NoDependencies": "2.88.7",
           "Swashbuckle.AspNetCore": "6.5.0",
           "System.IdentityModel.Tokens.Jwt": "6.27.0"
         },
@@ -79,6 +81,33 @@
           "lib/net6.0/HarfBuzzSharp.dll": {
             "assemblyVersion": "1.0.0.0",
             "fileVersion": "7.3.0.1"
+          }
+        }
+      },
+      "HarfBuzzSharp.NativeAssets.Linux/7.3.0.1": {
+        "dependencies": {
+          "HarfBuzzSharp": "7.3.0.1"
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libHarfBuzzSharp.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libHarfBuzzSharp.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libHarfBuzzSharp.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libHarfBuzzSharp.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -582,6 +611,33 @@
           "lib/net6.0/SkiaSharp.HarfBuzz.dll": {
             "assemblyVersion": "2.88.0.0",
             "fileVersion": "2.88.7.0"
+          }
+        }
+      },
+      "SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.7": {
+        "dependencies": {
+          "SkiaSharp": "2.88.7"
+        },
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libSkiaSharp.so": {
+            "rid": "linux-arm",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-arm64/native/libSkiaSharp.so": {
+            "rid": "linux-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-musl-x64/native/libSkiaSharp.so": {
+            "rid": "linux-musl-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/linux-x64/native/libSkiaSharp.so": {
+            "rid": "linux-x64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
           }
         }
       },
@@ -1347,6 +1403,13 @@
       "path": "harfbuzzsharp/7.3.0.1",
       "hashPath": "harfbuzzsharp.7.3.0.1.nupkg.sha512"
     },
+    "HarfBuzzSharp.NativeAssets.Linux/7.3.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-8CH54W2peBhE3vBN10gx4+2lLTrVoHAY+OrTO2OqXo3QkKJaH3hMG6dTKSWOy88hr0xjQ4j4jBYdYBjMcCK8Xw==",
+      "path": "harfbuzzsharp.nativeassets.linux/7.3.0.1",
+      "hashPath": "harfbuzzsharp.nativeassets.linux.7.3.0.1.nupkg.sha512"
+    },
     "HarfBuzzSharp.NativeAssets.macOS/7.3.0.1": {
       "type": "package",
       "serviceable": true,
@@ -1787,6 +1850,13 @@
       "sha512": "sha512-4Vd+GpokorZNpDvUp09zjK6CMXN35zyJtNvzkGtS1TsXlG/5yA3lWTsQIU0nSQjfgpYql0tSEU5+WTsjxljugg==",
       "path": "skiasharp.harfbuzz/2.88.7",
       "hashPath": "skiasharp.harfbuzz.2.88.7.nupkg.sha512"
+    },
+    "SkiaSharp.NativeAssets.Linux.NoDependencies/2.88.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-KkMftfAz1lGPnuhyecuLJzeyvMjXtHp9cYVQc/oeLhF8KYrxtUxRy5LOX5oROhyLHy/CyqEl9MoAhqmSH7cV7g==",
+      "path": "skiasharp.nativeassets.linux.nodependencies/2.88.7",
+      "hashPath": "skiasharp.nativeassets.linux.nodependencies.2.88.7.nupkg.sha512"
     },
     "SkiaSharp.NativeAssets.macOS/2.88.7": {
       "type": "package",

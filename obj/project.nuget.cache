@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "NAr5+rMUPcILCd2BnGOXYdWvA9Ob4ze1qAj9kvK3sX9D0BoLZS7B/+J0aXmgJKRQ8P8L+zZ0UGnGdSvV7HQMWg==",
+  "dgSpecHash": "xIsdBjGSMxbk6M/4/fajJjLi83E+1B+vgA1nN6IfP8V0Y7wosNjObseJ//M99BkI5ZvzBhrVGSA26CXwmku3Gw==",
   "success": true,
   "projectFilePath": "C:\\Users\\canto\\OneDrive\\Área de Trabalho\\Projetos NextOpinion\\API_Financeiro_Next\\API_Financeiro_Next.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\canto\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\castle.core\\4.4.1\\castle.core.4.4.1.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\harfbuzzsharp\\7.3.0.1\\harfbuzzsharp.7.3.0.1.nupkg.sha512",
+    "C:\\Users\\canto\\.nuget\\packages\\harfbuzzsharp.nativeassets.linux\\7.3.0.1\\harfbuzzsharp.nativeassets.linux.7.3.0.1.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\harfbuzzsharp.nativeassets.macos\\7.3.0.1\\harfbuzzsharp.nativeassets.macos.7.3.0.1.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\harfbuzzsharp.nativeassets.win32\\7.3.0.1\\harfbuzzsharp.nativeassets.win32.7.3.0.1.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
@@ -71,6 +72,7 @@
     "C:\\Users\\canto\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\skiasharp\\2.88.7\\skiasharp.2.88.7.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.7\\skiasharp.harfbuzz.2.88.7.nupkg.sha512",
+    "C:\\Users\\canto\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\2.88.7\\skiasharp.nativeassets.linux.nodependencies.2.88.7.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\skiasharp.nativeassets.macos\\2.88.7\\skiasharp.nativeassets.macos.2.88.7.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\skiasharp.nativeassets.win32\\2.88.7\\skiasharp.nativeassets.win32.2.88.7.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\swashbuckle.aspnetcore\\6.5.0\\swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
