@@ -23,7 +23,8 @@
           "QuestPDF": "2023.12.5",
           "SkiaSharp.NativeAssets.Linux.NoDependencies": "2.88.7",
           "Swashbuckle.AspNetCore": "6.5.0",
-          "System.IdentityModel.Tokens.Jwt": "6.27.0"
+          "System.IdentityModel.Tokens.Jwt": "6.27.0",
+          "runtime.win-arm64.Microsoft.NETCore.DotNetAppHost": "6.0.21"
         },
         "runtime": {
           "API_Financeiro_Next.dll": {}
@@ -590,6 +591,70 @@
       "runtime.ubuntu.14.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.04-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
       "runtime.ubuntu.16.10-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {},
+      "runtime.win-arm64.Microsoft.NETCore.DotNetAppHost/6.0.21": {
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/apphost.exe": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/comhost.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "6.0.2123.36311"
+          },
+          "runtimes/win-arm64/native/coreclr_delegates.h": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/hostfxr.h": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/ijwhost.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "6.0.2123.36311"
+          },
+          "runtimes/win-arm64/native/ijwhost.lib": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/libhostfxr.lib": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/libnethost.lib": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/nethost.dll": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "6.0.2123.36311"
+          },
+          "runtimes/win-arm64/native/nethost.h": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/nethost.lib": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          },
+          "runtimes/win-arm64/native/singlefilehost.exe": {
+            "rid": "win-arm64",
+            "assetType": "native",
+            "fileVersion": "0.0.0.0"
+          }
+        }
+      },
       "SkiaSharp/2.88.7": {
         "dependencies": {
           "SkiaSharp.NativeAssets.Win32": "2.88.7",
@@ -1836,6 +1901,13 @@
       "sha512": "sha512-VB5cn/7OzUfzdnC8tqAIMQciVLiq2epm2NrAm1E9OjNRyG4lVhfR61SMcLizejzQP8R8Uf/0l5qOIbUEi+RdEg==",
       "path": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl/4.3.0",
       "hashPath": "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512"
+    },
+    "runtime.win-arm64.Microsoft.NETCore.DotNetAppHost/6.0.21": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IVokQSkon+kVFmZEKJTz3920xxUPe/q0Djx+kzx5d4WeeyZ1irB7ah5SC9ksNK3quS7MdcCyI2TW9S4L88aayw==",
+      "path": "runtime.win-arm64.microsoft.netcore.dotnetapphost/6.0.21",
+      "hashPath": "runtime.win-arm64.microsoft.netcore.dotnetapphost.6.0.21.nupkg.sha512"
     },
     "SkiaSharp/2.88.7": {
       "type": "package",

@@ -1027,6 +1027,59 @@
           }
         }
       },
+      "runtime.win-arm64.Microsoft.NETCore.DotNetAppHost/6.0.21": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/win-arm64/native/apphost.exe": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-arm64/native/comhost.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-arm64/native/coreclr_delegates.h": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-arm64/native/hostfxr.h": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-arm64/native/ijwhost.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-arm64/native/ijwhost.lib": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-arm64/native/libhostfxr.lib": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-arm64/native/libnethost.lib": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-arm64/native/nethost.dll": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-arm64/native/nethost.h": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-arm64/native/nethost.lib": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          },
+          "runtimes/win-arm64/native/singlefilehost.exe": {
+            "assetType": "native",
+            "rid": "win-arm64"
+          }
+        }
+      },
       "SkiaSharp/2.88.7": {
         "type": "package",
         "dependencies": {
@@ -4010,6 +4063,32 @@
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.nuspec",
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
+      ]
+    },
+    "runtime.win-arm64.Microsoft.NETCore.DotNetAppHost/6.0.21": {
+      "sha512": "IVokQSkon+kVFmZEKJTz3920xxUPe/q0Djx+kzx5d4WeeyZ1irB7ah5SC9ksNK3quS7MdcCyI2TW9S4L88aayw==",
+      "type": "package",
+      "path": "runtime.win-arm64.microsoft.netcore.dotnetapphost/6.0.21",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.win-arm64.microsoft.netcore.dotnetapphost.6.0.21.nupkg.sha512",
+        "runtime.win-arm64.microsoft.netcore.dotnetapphost.nuspec",
+        "runtimes/win-arm64/native/apphost.exe",
+        "runtimes/win-arm64/native/comhost.dll",
+        "runtimes/win-arm64/native/coreclr_delegates.h",
+        "runtimes/win-arm64/native/hostfxr.h",
+        "runtimes/win-arm64/native/ijwhost.dll",
+        "runtimes/win-arm64/native/ijwhost.lib",
+        "runtimes/win-arm64/native/libhostfxr.lib",
+        "runtimes/win-arm64/native/libnethost.lib",
+        "runtimes/win-arm64/native/nethost.dll",
+        "runtimes/win-arm64/native/nethost.h",
+        "runtimes/win-arm64/native/nethost.lib",
+        "runtimes/win-arm64/native/singlefilehost.exe"
       ]
     },
     "SkiaSharp/2.88.7": {
@@ -7793,7 +7872,8 @@
       "QuestPDF >= 2023.12.5",
       "SkiaSharp.NativeAssets.Linux.NoDependencies >= 2.88.7",
       "Swashbuckle.AspNetCore >= 6.5.0",
-      "System.IdentityModel.Tokens.Jwt >= 6.27.0"
+      "System.IdentityModel.Tokens.Jwt >= 6.27.0",
+      "runtime.win-arm64.Microsoft.NETCore.DotNetAppHost >= 6.0.21"
     ]
   },
   "packageFolders": {
@@ -7900,6 +7980,10 @@
           "System.IdentityModel.Tokens.Jwt": {
             "target": "Package",
             "version": "[6.27.0, )"
+          },
+          "runtime.win-arm64.Microsoft.NETCore.DotNetAppHost": {
+            "target": "Package",
+            "version": "[6.0.21, )"
           }
         },
         "imports": [
