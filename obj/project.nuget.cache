@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SBlaEsfZxlIAHv6NmFANaGrLvGrnsMw0LpEJNMZbk91UtiBscQu0SFPtwS8k/FDM3DN/RyaOwGXXYQGCRKS8pw==",
+  "dgSpecHash": "S8+hcYqeLtGtqtGqAkoftJ3C6I2rW9HPyzcZet4DprnpJl4ntdYzIz52HAN4JlmHAVxIOlFtaVYWuVi6O9ZFyg==",
   "success": true,
   "projectFilePath": "C:\\Users\\canto\\OneDrive\\Área de Trabalho\\Projetos NextOpinion\\API_Financeiro_Next\\API_Financeiro_Next.csproj",
   "expectedPackageFiles": [
@@ -70,7 +70,6 @@
     "C:\\Users\\canto\\.nuget\\packages\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
-    "C:\\Users\\canto\\.nuget\\packages\\runtime.win-arm64.microsoft.netcore.dotnetapphost\\6.0.21\\runtime.win-arm64.microsoft.netcore.dotnetapphost.6.0.21.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\skiasharp\\2.88.7\\skiasharp.2.88.7.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\skiasharp.harfbuzz\\2.88.7\\skiasharp.harfbuzz.2.88.7.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\skiasharp.nativeassets.linux.nodependencies\\2.88.7\\skiasharp.nativeassets.linux.nodependencies.2.88.7.nupkg.sha512",
