@@ -78,6 +78,10 @@ builder.Services.AddAuthentication(opts =>
         ClockSkew = TimeSpan.Zero
     };
 
+    // Imprimir a chave JWT para verificar se está sendo lida corretamente
+    var symmetricKey = builder.Configuration["SymmetricSecurityKey_ApiFinanceiro"];
+    Console.WriteLine("Symmetric Security Key: " + symmetricKey);
+
 });
 
 
