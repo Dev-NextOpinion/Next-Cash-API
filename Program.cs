@@ -54,35 +54,7 @@ builder.Services.Configure<IdentityOptions>(options =>
 
 });
 
-// CONFIGURAÇÃO DE PROXY REVERSO - HEADERS
-//builder.Services.Configure<ForwardedHeadersOptions>(options =>
-//{
-//  options.KnownProxies.Add(IPAddress.Parse("135.181.28.87"));
-//});
 
-// Adicionando serviço de autenticação por JWT 
-//builder.Services.AddAuthentication(opts =>
-//{
-//    opts.DefaultAuthenticateScheme =
-//    JwtBearerDefaults.AuthenticationScheme;
-//}).AddJwtBearer(opts =>
-//{
-//    opts.TokenValidationParameters = new
-//    Microsoft.IdentityModel.Tokens.TokenValidationParameters
-//    {
-//        ValidateIssuerSigningKey = true,
-//        IssuerSigningKey = new SymmetricSecurityKey
-//            (Encoding.UTF8.GetBytes(builder.Configuration["SymmetricSecurityKey_ApiFinanceiro"])),
-//        ValidateAudience = false,
-//        ValidateIssuer = false,
-//        ClockSkew = TimeSpan.Zero
-//    };
-
-//    // Imprimir a chave JWT para verificar se está sendo lida corretamente
-//    var symmetricKey = builder.Configuration["SymmetricSecurityKey_ApiFinanceiro"];
-//    Console.WriteLine("Symmetric Security Key: " + symmetricKey);
-
-//});
 
 // Adicionando serviço de autenticação por JWT 
 builder.Services.AddAuthentication(opts =>
