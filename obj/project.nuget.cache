@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "S8+hcYqeLtGtqtGqAkoftJ3C6I2rW9HPyzcZet4DprnpJl4ntdYzIz52HAN4JlmHAVxIOlFtaVYWuVi6O9ZFyg==",
+  "dgSpecHash": "/0F4hD+5JOLhJh5GBYa26qtZt90KhmneKc4ze3gP7/q8q97Ne1uOBZTxorvCG5CId05ItsH8In6Xwz3yJLX1xA==",
   "success": true,
   "projectFilePath": "C:\\Users\\canto\\OneDrive\\Área de Trabalho\\Projetos NextOpinion\\API_Financeiro_Next\\API_Financeiro_Next.csproj",
   "expectedPackageFiles": [
@@ -47,6 +47,7 @@
     "C:\\Users\\canto\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\canto\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.19.4\\microsoft.visualstudio.azure.containers.tools.targets.1.19.4.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\mysqlconnector\\2.0.0\\mysqlconnector.2.0.0.nupkg.sha512",
     "C:\\Users\\canto\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
