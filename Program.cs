@@ -10,41 +10,46 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using QuestPDF.Infrastructure;
 using System;
+using System.IO;
 using System.Text;
+using Microsoft.AspNetCore.DataProtection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 QuestPDF.Settings.License = LicenseType.Community;
 
-// Configurações de conexão com banco de dados
+// Buscando conexão com database para as tabelas das entidades
 var entidadesConnectionString = builder.Configuration["ConnectionStrings:EntidadesConnection"];
-builder.Services.AddDbContext<EntidadesContext>(opt =>
-    opt.UseLazyLoadingProxies().UseMySql(entidadesConnectionString,
-        ServerVersion.AutoDetect(entidadesConnectionString)));
 
+builder.Services.AddDbContext<EntidadesContext>(opt =>
+    opt.UseLazyLoadingProxies().UseMySql(entidadesConnectionString, ServerVersion.AutoDetect(entidadesConnectionString)));
+
+// Buscando conexão com database para as tabelas de usuários
 var usersConnectionString = builder.Configuration["ConnectionStrings:UsuariosConnection"];
+
 builder.Services.AddDbContext<UsuariosContext>(opt =>
 {
-    opt.UseMySql(usersConnectionString,
-        ServerVersion.AutoDetect(usersConnectionString));
+    opt.UseMySql(usersConnectionString, ServerVersion.AutoDetect(usersConnectionString));
 });
 
-// Configurações de autenticação e autorização
 builder.Services
     .AddIdentity<Usuario, IdentityRole>()
     .AddEntityFrameworkStores<UsuariosContext>()
     .AddDefaultTokenProviders();
 
+// Adicionando o services
 builder.Services.AddScoped<UsuarioService>();
 builder.Services.AddScoped<TokenService>();
 builder.Services.AddScoped<EmailService>();
 builder.Services.AddScoped<CategoriaService>();
 
+// Adicionando o reset de senha
 builder.Services.Configure<IdentityOptions>(options =>
 {
     options.Password.RequiredLength = 11;
 });
 
+// Adicionando serviço de autenticação por JWT 
 builder.Services.AddAuthentication(opts =>
 {
     opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -67,8 +72,12 @@ builder.Services.AddAuthentication(opts =>
         // Lidar com a falta da chave de segurança simétrica
         Console.WriteLine("A chave de segurança simétrica não foi encontrada nas configurações.");
     }
+
+    // Imprimir a chave JWT para verificar se está sendo lida corretamente
+    Console.WriteLine("Symmetric Security Key: " + symmetricKey);
 });
 
+// Adicionando autorizações 
 builder.Services.AddAuthorization(opts =>
 {
     opts.AddPolicy("AuthenticationUser", policy =>
@@ -79,19 +88,28 @@ builder.Services.AddAuthorization(opts =>
 
 builder.Services.AddSingleton<IAuthorizationHandler, CategoriasAuthorization>();
 
+// Adicionando o mapeamento de DTOs
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddControllers().AddNewtonsoftJson();
 
 builder.Services.AddHttpContextAccessor();
 
-// Configuração do CORS
+// Configurando proteção de dados
+var dataProtectionDirectory = new DirectoryInfo("/app/DataProtectionKeys");
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(dataProtectionDirectory);
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
+
 builder.Services.AddCors(opt =>
 {
     opt.AddPolicy("AllowSpecificOrigin",
         builder =>
         {
-            builder.WithOrigins("https://api2.stepone.com.br")
+            builder.WithOrigins("https:api2.stepone.com.br")
                    .AllowAnyMethod()
                    .AllowAnyHeader();
         });
@@ -105,19 +123,25 @@ app.UseForwardedHeaders(new ForwardedHeadersOptions
     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
 });
 
-// Redirecionamento HTTPS apenas em produção
+app.UseCors(builder => builder
+       .AllowAnyHeader()
+       .AllowAnyMethod()
+       .AllowAnyOrigin());
+
+// Ambiente de produção
 if (!app.Environment.IsDevelopment())
 {
     app.UseHttpsRedirection();
 }
 
 app.UseStaticFiles();
+
 app.UseRouting();
+
 app.UseAuthentication();
+
 app.UseAuthorization();
 
-// Middleware CORS
-app.UseCors("AllowSpecificOrigin");
-
 app.MapControllers();
+
 app.Run();
