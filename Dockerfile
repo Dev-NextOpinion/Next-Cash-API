@@ -1,5 +1,3 @@
-#See https://aka.ms/customizecontainer to learn how to customize your debug container and how Visual Studio uses this Dockerfile to build your images for faster debugging.
-
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS base
 WORKDIR /app
 EXPOSE 80
@@ -19,4 +17,8 @@ RUN dotnet publish "API_Financeiro_Next.csproj" -c Release -o /app/publish /p:Us
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
+
+# Adicionando a linha abaixo para criar um volume e armazenar os dados fora do contêiner
+VOLUME /app/ExternalDataProtectionKeys
+
 ENTRYPOINT ["dotnet", "API_Financeiro_Next.dll"]
