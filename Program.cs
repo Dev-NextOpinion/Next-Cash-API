@@ -98,8 +98,19 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddHttpContextAccessor();
 
 // Configurando proteção de dados
+//builder.Services.AddDataProtection()
+//    .PersistKeysToFileSystem(new DirectoryInfo("/app/ExternalDataProtectionKeys"))
+//    .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration
+//    {
+//        EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
+//        ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
+//    });
+
 builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo("/app/ExternalDataProtectionKeys"))
+    .SetDefaultKeyLifetime(TimeSpan.FromDays(90)) // Define o tempo de vida padrão da chave
+    //.SetDefaultKeyLimit(3) // Define o limite padrão de chaves
+    .ProtectKeysWithDpapi() // Configuração de um "encryptor" XML, neste caso usando o DPAPI
     .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration
     {
         EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
