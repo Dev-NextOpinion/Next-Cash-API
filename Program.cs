@@ -110,7 +110,7 @@ builder.Services.AddHttpContextAccessor();
 
 // Carregue o certificado pelo thumbprint
 var thumbprint = "AB:DC:F9:FE:2B:5F:34:8C:74:5C:A9:AE:2A:15:DD:55:57:DB:0F:A2";
-using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
+using (var store = new X509Store(StoreName.My, StoreLocation.CurrentUser))
 {
     store.Open(OpenFlags.ReadOnly);
     var certificates = store.Certificates.Find(X509FindType.FindByThumbprint, thumbprint, false);
@@ -132,6 +132,7 @@ using (var store = new X509Store(StoreName.My, StoreLocation.LocalMachine))
         Console.WriteLine("Certificado com thumbprint especificado não encontrado.");
     }
 }
+
 
 
 
