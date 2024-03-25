@@ -108,33 +108,7 @@ builder.Services.AddDataProtection()
     });
 
 
-//// Carregar o certificado pelo caminho do arquivo
-//var certificatePath = "/etc/ssl/certs/certificado-autoassinado.pem";
-//if (File.Exists(certificatePath))
-//{
-//    try
-//    {
-//        var certificate = new X509Certificate2(certificatePath);
 
-//        // Use o certificado carregado para proteger as chaves de proteção de dados
-//        builder.Services.AddDataProtection()
-//            .PersistKeysToFileSystem(new DirectoryInfo("/app/ExternalDataProtectionKeys"))
-//            .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration
-//            {
-//                EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
-//                ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
-//            })
-//            .ProtectKeysWithCertificate(certificate);
-//    }
-//    catch (Exception ex)
-//    {
-//        Console.WriteLine($"Erro ao carregar o certificado: {ex.Message}");
-//    }
-//}
-//else
-//{
-//    Console.WriteLine("O arquivo do certificado não foi encontrado no caminho especificado.");
-//}
 
 
 
