@@ -21,9 +21,9 @@
     "Docker": {
       "commandName": "Docker",
       "launchBrowser": true,
-      "launchUrl": "{Scheme}://{ServiceHost}:{ServicePort}/swagger",
+      "launchUrl": "https://localhost:443/swagger",
       "environmentVariables": {
-        "ASPNETCORE_URLS": "https://+:443;http://+:80"
+        "ASPNETCORE_URLS": "https://api2.stepone.com.br:443;http://api2.stepone.com.br:80"
       },
       "publishAllPorts": true,
       "useSSL": true
