@@ -19,19 +19,6 @@ using System.Security.Cryptography.X509Certificates;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-// Configuração do servidor Kestrel
-builder.WebHost.UseKestrel(options =>
-{
-    // Habilita o redirecionamento HTTPS
-    options.ListenAnyIP(80); // Porta HTTP padrão
-    options.ListenAnyIP(443, listenOptions =>
-    {
-        listenOptions.UseHttps(); // Habilita HTTPS
-    });
-});
-
-
 QuestPDF.Settings.License = LicenseType.Community;
 
 // Buscando conexão com database para as tabelas das entidades
