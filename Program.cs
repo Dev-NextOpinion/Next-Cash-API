@@ -98,11 +98,11 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddHttpContextAccessor();
 
 // Configurando proteção de dados
-//var dataProtectionDirectory = new DirectoryInfo("/app/ExternalDataProtectionKeys");
 //builder.Services.AddDataProtection()
-//    .PersistKeysToFileSystem(dataProtectionDirectory);
+//    .PersistKeysToFileSystem(new DirectoryInfo("/app/ExternalDataProtectionKeys"));
 
-builder.Services.AddDataProtection().PersistKeysToFileSystem(new DirectoryInfo("/app/ExternalDataProtectionKeys"))
+builder.Services.AddDataProtection().PersistKeysToFileSystem(
+    new DirectoryInfo(@"C:\temp-keys\"))
                 .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration()
                 {
                     EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
