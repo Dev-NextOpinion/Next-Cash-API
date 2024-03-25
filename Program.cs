@@ -105,17 +105,14 @@ builder.Services.AddHttpContextAccessor();
 //        EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
 //        ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
 //    });
-
 builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo("/app/ExternalDataProtectionKeys"))
-    .SetDefaultKeyLifetime(TimeSpan.FromDays(90)) // Define o tempo de vida padrão da chave
-    //.SetDefaultKeyLimit(3) // Define o limite padrão de chaves
-    .ProtectKeysWithDpapi() // Configuração de um "encryptor" XML, neste caso usando o DPAPI
     .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration
     {
         EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
         ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
-    });
+    })
+    .ProtectKeysWithCertificate("AB:DC:F9:FE:2B:5F:34:8C:74:5C:A9:AE:2A:15:DD:55:57:DB:0F:A2");
 
 
 
