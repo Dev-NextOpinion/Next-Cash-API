@@ -15,5 +15,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out ./
 
+
+EXPOSE 443
+
 # Define o comando para iniciar o aplicativo
 ENTRYPOINT ["dotnet", "API_Financeiro_Next.dll"]
