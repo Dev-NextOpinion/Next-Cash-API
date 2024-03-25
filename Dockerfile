@@ -15,7 +15,6 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out ./
 
-FROM nginx:latest
 
 # Configurar o serviço para ouvir na porta 80 (o padrão do nginx)
 EXPOSE 80
