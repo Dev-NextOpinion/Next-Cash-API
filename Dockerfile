@@ -18,6 +18,8 @@ COPY --from=publish /app/ExternalDataProtectionKeys /app/ExternalDataProtectionK
 
 # Expor somente a porta 443
 EXPOSE 443
+EXPOSE 80
 ENV ASPNETCORE_URLS=http://+:433
+ENV ASPNETCORE_URLS=http://+:80
 
 ENTRYPOINT ["dotnet", "API_Financeiro_Next.dll"]
