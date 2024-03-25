@@ -20,6 +20,6 @@ COPY --from=publish /app/publish .
 
 
 # Adicionando a linha abaixo para criar um volume e armazenar os dados fora do contêiner
-#VOLUME /app/ExternalDataProtectionKeys
+VOLUME /app/ExternalDataProtectionKeys
 
 ENTRYPOINT ["dotnet", "API_Financeiro_Next.dll"]

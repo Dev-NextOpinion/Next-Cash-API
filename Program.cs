@@ -98,16 +98,14 @@ builder.Services.AddControllers().AddNewtonsoftJson();
 builder.Services.AddHttpContextAccessor();
 
 // Configurando proteção de dados
-//builder.Services.AddDataProtection()
-//    .PersistKeysToFileSystem(new DirectoryInfo("/app/ExternalDataProtectionKeys"));
+builder.Services.AddDataProtection()
+    .PersistKeysToFileSystem(new DirectoryInfo("/app/ExternalDataProtectionKeys"))
+    .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration
+    {
+        EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
+        ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
+    });
 
-builder.Services.AddDataProtection().PersistKeysToFileSystem(
-    new DirectoryInfo(@"C:\temp-keys\"))
-                .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration()
-                {
-                    EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
-                    ValidationAlgorithm = ValidationAlgorithm.HMACSHA256
-                });
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
