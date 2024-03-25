@@ -18,6 +18,7 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 
+
 # Adicionando a linha abaixo para criar um volume e armazenar os dados fora do contêiner
 VOLUME /app/ExternalDataProtectionKeys
 
