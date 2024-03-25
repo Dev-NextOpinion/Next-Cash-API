@@ -145,7 +145,7 @@ if (!app.Environment.IsDevelopment())
 
 //app.UseStaticFiles();
 
-app.UseHttpLogging();
+//app.UseHttpLogging();
 
 app.UseRouting();
 
