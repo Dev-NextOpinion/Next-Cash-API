@@ -101,7 +101,7 @@ builder.Services.AddHttpContextAccessor();
 // Configurando proteção de dados
 builder.Services.AddDataProtection()
     .PersistKeysToFileSystem(new DirectoryInfo("/app/ExternalDataProtectionKeys"))
-    .ProtectKeysWithDpapi()
+    .SetApplicationName("API_Financeiro_Next")
     .UseCryptographicAlgorithms(new AuthenticatedEncryptorConfiguration
     {
         EncryptionAlgorithm = EncryptionAlgorithm.AES_256_CBC,
