@@ -1,54 +1,19 @@
-#WORKDIR /app
-#
-#FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-#WORKDIR /src
-#COPY ["API_Financeiro_Next.csproj", "."]
-#RUN dotnet restore "./API_Financeiro_Next.csproj"
-#COPY . .
-#WORKDIR "/src/."
-#RUN dotnet build "API_Financeiro_Next.csproj" -c Release -o /app/build
-#
-#FROM build AS publish
-#RUN dotnet publish "API_Financeiro_Next.csproj" -c Release -o /app/publish /p:UseAppHost=false
-#
-#FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
-#WORKDIR /app
-#COPY --from=publish /app/publish .
-#COPY --from=publish /app/ExternalDataProtectionKeys /app/ExternalDataProtectionKeys
-#
-## Expor somente a porta 443
-#EXPOSE 443
-#EXPOSE 80
-#
-#
-#ENTRYPOINT ["dotnet", "API_Financeiro_Next.dll"]
-
-#
-
+# Define a imagem base
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-
-WORKDIR /src
-
-COPY ["API_Financeiro_Next.csproj", "."]
-RUN dotnet restore "./API_Financeiro_Next.csproj"
-
-COPY . .
-
-WORKDIR "/src/."
-RUN dotnet build "API_Financeiro_Next.csproj" -c Release -o /app/build
-
-FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS publish
-
 WORKDIR /app
 
-COPY --from=build /app/publish .
+# Copia o arquivo do projeto e restaura as dependências
+COPY *.csproj ./
+RUN dotnet restore
 
-COPY --from=build /app/ExternalDataProtectionKeys /app/ExternalDataProtectionKeys
+# Copia o resto dos arquivos e constrói a aplicação
+COPY . ./
+RUN dotnet publish -c Release -o out
 
-# Expose only port 443
-EXPOSE 443
+# Configuração da imagem de runtime
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/out ./
 
-# Expose port 80 for potential reverse proxy setup
-EXPOSE 80
-
+# Define o comando para iniciar o aplicativo
 ENTRYPOINT ["dotnet", "API_Financeiro_Next.dll"]

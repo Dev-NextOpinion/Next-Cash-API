@@ -126,11 +126,15 @@ builder.Services.AddCors(opt =>
 
 var app = builder.Build();
 
-// CONFIGURAÇÃO DE PROXY REVERSO
-app.UseForwardedHeaders(new ForwardedHeadersOptions
-{
-    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-});
+//// CONFIGURAÇÃO DE PROXY REVERSO
+//app.UseForwardedHeaders(new ForwardedHeadersOptions
+//{
+//    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+//});//// CONFIGURAÇÃO DE PROXY REVERSO
+//app.UseForwardedHeaders(new ForwardedHeadersOptions
+//{
+//    ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
+//});
 
 app.UseCors(builder => builder
        .AllowAnyHeader()
