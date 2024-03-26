@@ -21,5 +21,5 @@ FROM nginx:latest
 EXPOSE 80
 EXPOSE 443
 
-# Define o comando para iniciar o aplicativo
+## Define o comando para iniciar o aplicativo
 ENTRYPOINT ["dotnet", "API_Financeiro_Next.dll"]
