@@ -19,8 +19,5 @@ COPY --from=build /app/out ./
 EXPOSE 80
 EXPOSE 443
 
-# Adicione esta linha no seu Dockerfile, antes de executar sua aplicação
-RUN apt-get update && apt-get install -y mysql-client
-
 # Define o comando para iniciar o aplicativo
 ENTRYPOINT ["dotnet", "API_Financeiro_Next.dll"]
