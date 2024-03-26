@@ -21,6 +21,7 @@ EXPOSE 443
 # ESTÁGIO 4
 # Define a imagem base para o estágio de execução
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
+ENV ASPNETCOTE_URLS=http://+:80
 WORKDIR /app
 COPY --from=build /app/out ./
 
