@@ -15,7 +15,7 @@ using System.Text;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
 using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
-using System.Security.Cryptography.X509Certificates;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -75,9 +75,6 @@ builder.Services.AddAuthentication(opts =>
         // Lidar com a falta da chave de segurança simétrica
         Console.WriteLine("A chave de segurança simétrica não foi encontrada nas configurações.");
     }
-
-    // Imprimir a chave JWT para verificar se está sendo lida corretamente
-    Console.WriteLine("Symmetric Security Key: " + symmetricKey);
 });
 
 // Adicionando autorizações 
