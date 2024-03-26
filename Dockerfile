@@ -7,10 +7,6 @@ WORKDIR /app
 EXPOSE 80
 EXPOSE 443
 
-ENV ASPNETCORE_URLS=https://+:433; http://+80;
-ENV ASPNETCORE_ENVIRONMENT=Development
-
-
 # ESTÁGIO 2
 # Copia o arquivo do projeto e restaura as dependências
 COPY *.csproj ./
