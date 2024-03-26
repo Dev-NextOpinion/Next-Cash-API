@@ -1,4 +1,4 @@
-# Define a imagem base
+# Define a imagem base para o estágio de compilação
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
 
@@ -10,16 +10,14 @@ RUN dotnet restore
 COPY . ./
 RUN dotnet publish -c Release -o out
 
-# Configuração da imagem de runtime
+# Define a imagem base para o estágio de execução
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
 COPY --from=build /app/out ./
 
-FROM nginx:latest
-
-# Configurar o serviço para ouvir na porta 80 (o padrão do nginx)
+# Exponha a porta 80 para acessar o aplicativo
 EXPOSE 80
 EXPOSE 443
 
-## Define o comando para iniciar o aplicativo
+# Define o comando para iniciar o aplicativo
 ENTRYPOINT ["dotnet", "API_Financeiro_Next.dll"]
