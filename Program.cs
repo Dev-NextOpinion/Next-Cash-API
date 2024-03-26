@@ -19,6 +19,11 @@ using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Logging.AddConsole(); // Adicionar logging para o console
+
+builder.Services.AddMemoryCache();
+
+
 QuestPDF.Settings.License = LicenseType.Community;
 
 // Buscando conexão com database para as tabelas das entidades
@@ -131,7 +136,7 @@ app.UseCors(builder => builder
 // Ambiente de produção
 if (!app.Environment.IsDevelopment())
 {
-    //app.UseHttpsRedirection();
+    app.UseHttpsRedirection();
 }
 
 //app.UseStaticFiles();
@@ -145,5 +150,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.UseCors("AllowSpecificOrigin");
 
 app.Run();
