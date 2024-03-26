@@ -3,10 +3,6 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
 
-# Exponha a porta 80 para acessar o aplicativo
-EXPOSE 80
-EXPOSE 443
-
 # ESTÁGIO 2
 # Copia o arquivo do projeto e restaura as dependências
 COPY *.csproj ./
@@ -16,6 +12,11 @@ RUN dotnet restore
 # Copia o resto dos arquivos e constrói a aplicação
 COPY . ./
 RUN dotnet publish -c Release -o out
+
+
+# Exponha a porta 80 para acessar o aplicativo
+EXPOSE 80
+EXPOSE 443
 
 # ESTÁGIO 4
 # Define a imagem base para o estágio de execução
