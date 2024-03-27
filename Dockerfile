@@ -1,4 +1,4 @@
-# ESTAGIO 1
+# ESTÁGIO 1
 # Define a imagem base para o estágio de compilação
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 WORKDIR /app
@@ -15,7 +15,7 @@ RUN wget -qO- https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor 
     && chown root:root /etc/apt/sources.list.d/microsoft-prod.list \
     && apt-get update \
     && apt-get install -y --no-install-recommends \
-       dotnet-sdk-6.0 \
+       dotnet-sdk \
     && rm -rf /var/lib/apt/lists/* \
     && rm -rf /etc/apt/sources.list.d/microsoft-prod.list \
     && rm -rf /etc/apt/trusted.gpg.d/microsoft.asc.gpg
@@ -32,7 +32,7 @@ RUN dotnet publish -c Release -o out
 EXPOSE 80
 EXPOSE 443
 
-# ESTAGIO 2
+# ESTÁGIO 2
 # Define a imagem base para o estágio de execução
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 WORKDIR /app
